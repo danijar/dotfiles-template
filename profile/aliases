@@ -1,0 +1,38 @@
+#!/bin/sh
+
+# Programs
+alias tmux='tmux -f ~/.config/tmux/tmux.conf'
+alias vim='nvim'
+alias vi='nvim'
+alias v='nvim'
+alias py='python3'
+alias np='ipython3 -i -c "import numpy as np"'
+alias l='command ls --color=auto --group-directories-first'
+alias ls='command ls --color=auto --group-directories-first -lhA --time-style long-iso'
+
+# Git
+alias gs='git status'
+alias gl='git log'
+alias ga='git add -A'
+alias gc='git commit -m '
+alias gd='git diff HEAD'
+alias gdc='git diff --cached'
+gr() { git rebase -i HEAD~$1 }
+
+# Resolve aliases for sudo
+alias sudo='sudo env "PATH=$PATH" '
+
+# Docker
+alias db='docker build -t image . -f'
+alias dr='docker run --privileged -it --rm --gpus all image'
+alias drl='docker run --privileged -it --rm --gpus all -v ~/logdir:/logdir image'
+
+# Edit directories
+ed() {
+  if [ -z "$1" ]; then; 1=$PWD; fi
+  ~/bin/edit_list \
+      --content-cmd "find $1" \
+      --rename-cmd 'mv {} {}' \
+      --delete-cmd 'rm -rf {}'
+}
+

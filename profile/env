@@ -1,0 +1,24 @@
+#!/bin/sh
+
+export EDITOR=nvim
+export PATH=$PATH:~/bin
+export PATH=$PATH:~/.local/bin
+export PATH=$PATH:~/.cargo/bin
+export PATH=$PATH:/usr/local/bin
+
+if [ -d /opt/homebrew ]; then
+  export EDITOR=vi
+  export HOMEBREW_NO_ANALYTICS=1
+  export HOMEBREW_CASK_OPTS='--no-quarantine'
+  export PATH="/opt/homebrew/bin:$PATH"
+  export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
+  export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+  export PATH="/opt/homebrew/lib/ruby/gems/3.4.0/bin:$PATH"
+  printf "\e[?1042l"  # Disable Alacritty icon bouncing
+fi
+
+FILE="$HOME/.venv/bin/activate"
+test -f $FILE && source $FILE
+
+export PATH="/opt/homebrew/share/google-cloud-sdk/bin:$PATH"
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
