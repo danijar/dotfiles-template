@@ -17,6 +17,9 @@ fi
 brew install --cask google-chrome
 brew install --cask gimp
 
+# Terminal
+brew install alacritty
+
 # Window manager
 brew install --cask nikitabobko/tap/aerospace
 
@@ -33,10 +36,6 @@ brew install ffmpeg
 brew install git-delta
 brew install claude-code
 brew install tree
-brew install rust
-
-# Terminal
-cargo install alacritty
 
 # Python
 uv python install 3.14
