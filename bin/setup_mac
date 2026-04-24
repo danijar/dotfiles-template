@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Run this script from anywhere:
-# sudo curl -fsSL https://tinyurl.com/setupmac1 | bash
+# curl -fsSL https://tinyurl.com/setupmac1 | bash
 
 set -euo pipefail
 trap 'echo "Script errored at line $LINENO"' ERR
