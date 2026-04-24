@@ -1,4 +1,4 @@
-#!/usr/bash
+#!/bin/bash
 
 # Run this script from anywhere:
 # sudo curl -fsSL https://tinyurl.com/setupmac1 | bash
