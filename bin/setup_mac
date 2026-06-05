@@ -36,6 +36,7 @@ brew install ffmpeg
 brew install git-delta
 brew install claude-code
 brew install tree
+brew install --cask docker
 
 # Python
 uv python install 3.14
