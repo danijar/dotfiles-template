@@ -17,7 +17,7 @@ setopt hist_verify
 setopt hist_reduce_blanks
 
 # Vi commands
-bindkey -v
+# bindkey -v
 export KEYTIMEOUT=1
 
 # Start line editor in command mode.
@@ -78,3 +78,4 @@ setopt promptsubst
 
 . ~/profile/aliases
 . ~/profile/env
+. ~/profile/settings
