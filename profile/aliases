@@ -27,6 +27,11 @@ alias db='docker build -t image . -f'
 alias dr='docker run --privileged -it --rm --gpus all image'
 alias drl='docker run --privileged -it --rm --gpus all -v ~/logdir:/logdir image'
 
+# List files after changing directory
+cd() {
+  builtin cd "$@" && l
+}
+
 # Edit directories
 ed() {
   if [ -z "$1" ]; then; 1=$PWD; fi
