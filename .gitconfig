@@ -15,6 +15,7 @@
   excludesfile = ~/.gitignore_global
   pager = delta
 [delta]
+  # brew/apt install git-delta
   syntax-theme = none
   file-style = bold
   file-decoration-style = none
