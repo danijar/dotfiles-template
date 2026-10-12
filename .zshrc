@@ -1,8 +1,8 @@
 # Enable command completion
 autoload -U compinit && compinit
 
-# Enable text reflow in terminal.
-printf '\e[99999;H\n\e[H'
+# # Enable text reflow in terminal.
+# printf '\e[99999;H\n\e[H'
 
 # History
 SAVEHIST=10000
