@@ -32,6 +32,7 @@ require("lazy").setup({
   { "lewis6991/gitsigns.nvim" },
   { "lukas-reineke/indent-blankline.nvim" },
   { "w0ng/vim-hybrid", lazy = false },
+  { "nvim-treesitter/nvim-treesitter", branch = "main", lazy = false, build = ":TSUpdate" },
 
   -- Intel
   { "hrsh7th/cmp-buffer" },
@@ -66,6 +67,7 @@ end
 
 ensure_binary("ruff", { "uv", "tool", "install", "-U", "ruff" })
 ensure_binary("pyright-langserver", { "uv", "tool", "install", "-U", "pyright" })
+ensure_binary("tree-sitter", { "brew", "install", "tree-sitter-cli" })
 
 ----------------------------------------------------------------
 -- Helpers
@@ -112,6 +114,10 @@ hi("NormalFloat",        { ctermbg = "Black", ctermfg = "White" })
 hi("FloatBorder",        { ctermbg = "Black", ctermfg = "DarkGray" })
 hi("IndentColor",        { ctermfg = "DarkGray",  ctermbg = nil })
 hi("CursorWord",         { ctermbg = "DarkGray",  underline = false })
+hi("@tag",               { link = "Statement" })
+hi("@tag.builtin",       { link = "Statement" })
+hi("@tag.delimiter",     { link = "Function" })
+hi("@tag.attribute",     { link = "Type" })
 
 ----------------------------------------------------------------
 -- Plugin settings
@@ -186,6 +192,11 @@ cmp.setup({
 -- windwp/nvim-autopairs
 local autopairs = require("nvim-autopairs.completion.cmp")
 require("cmp").event:on("confirm_done", autopairs.on_confirm_done())
+
+-- nvim-treesitter/nvim-treesitter
+require("nvim-treesitter").install({ "markdown", "markdown_inline", "html", "css", "javascript" })
+autocmd("FileType", { "markdown", "html" }, function() vim.treesitter.start() end)
+vim.filetype.add({ extension = { html = "html" } })
 
 ----------------------------------------------------------------
 -- LSP
