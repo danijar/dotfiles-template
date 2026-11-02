@@ -2,8 +2,5 @@
 
 ## Vim Bindings
 
-To enable Vim bindings, comment in the following settings:
-
-- The entire file `.ipython/profile_default/ipython_config.py`
-- The entire file `.inputrc`
-- The line `bindkey -v` in `.zshrc`
+To enable Vim bindings in zsh, readline, and IPython, set
+`DOTFILES_VIM_MODE=1` in `profile/env`.

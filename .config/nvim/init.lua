@@ -337,7 +337,6 @@ end
 autocmd({ "BufRead", "BufNewFile" }, "*", [[match Error /\s\+$/]])
 autocmd({ "FocusGained", "BufEnter" }, "*", "checktime")
 -- autocmd("BufWritePost", "*", function() require("lint").try_lint() end)
--- autocmd("VimLeave", "*", function() vim.fn.system("tmux setw automatic-rename") end)
 
 autocmd("BufWritePre", "*", function()
   if vim.bo.filetype ~= "snippets" then vim.cmd([[%s/\s\+$//e]]) end
@@ -349,10 +348,6 @@ autocmd("BufReadPost", "*", function()
     pcall(vim.api.nvim_win_set_cursor, 0, mark)
   end
 end)
-
--- autocmd({ "BufReadPost", "FileReadPost", "BufNewFile", "BufEnter" }, "*", function()
---   vim.fn.system("tmux rename-window '" .. vim.fn.expand("%:t") .. "'")
--- end)
 
 local function python_syntax()
   vim.cmd([[
